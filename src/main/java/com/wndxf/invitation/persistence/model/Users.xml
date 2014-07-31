@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"    
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.wndxf.invitation.persistence.UsersDAO">
+
+	<resultMap type="com.wndxf.invitation.persistence.model.Users" id="UsersResult">
+		<id column="id" property="id"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="create_time" property="createTime"/>
+		<result column="last_time" property="lastTime"/>
+		<result column="vip_num" property="vipNum"/>
+		<result column="is_pay" property="isPay"/>
+		<result column="email" property="email"/>
+		<result column="is_phone" property="isPhone"/>
+		<result column="is_pc" property="isPc"/>
+		<result column="font_family" property="fontFamily"/>
+		<result column="advert" property="advert"/>
+		<result column="is_advert" property="isAdvert"/>
+		<result column="extension" property="extension"/>
+		<result column="special_name" property="specialName"/>
+		<result column="title1" property="title1"/>
+		<result column="title2" property="title2"/>
+		<result column="title3" property="title3"/>
+		<result column="title4" property="title4"/>
+		<result column="title5" property="title5"/>
+		<result column="show_num" property="showNum"/>
+		<result column="admin_id" property="adminId"/>
+		<result column="is_confirm" property="isConfirm"/>
+		<result column="is_show" property="isShow"/>
+		<result column="style" property="style"/>
+		<result column="mould" property="mould"/>
+		<result column="pc_mould" property="pcMould"/>
+		<result column="music" property="music"/>
+		<result column="man" property="man"/>
+		<result column="women" property="women"/>
+		<result column="warn_time" property="warnTime"/>
+		<result column="house" property="house"/>
+		<result column="address" property="address"/>
+		<result column="image" property="image"/>
+		<result column="message" property="message"/>
+		<result column="coordinate" property="coordinate"/>
+		<result column="show_time" property="showTime"/>
+		<result column="mini_time" property="miniTime"/>
+		<result column="big_image" property="bigImage"/>
+		<result column="title" property="title"/>
+		<result column="big_title" property="bigTitle"/>
+		<result column="wei_xin" property="weiXin"/>
+		<result column="video" property="video"/>
+    </resultMap>
+	
+	<sql id="columnsSql">
+		id,
+		username,
+		password,
+		create_time,
+		last_time,
+		vip_num,
+		is_pay,
+		email,
+		is_phone,
+		is_pc,
+		font_family,
+		advert,
+		is_advert,
+		extension,
+		special_name,
+		title1,
+		title2,
+		title3,
+		title4,
+		title5,
+		show_num,
+		admin_id,
+		is_confirm,
+		is_show,
+		style,
+		mould,
+		pc_mould,
+		music,
+		man,
+		women,
+		warn_time,
+		house,
+		address,
+		image,
+		message,
+		coordinate,
+		show_time,
+		mini_time,
+		big_image,
+		title,
+		big_title,
+		wei_xin,
+		video
+	</sql>
+	
+	<sql id="whereSql">
+		<where>
+			<if test="users !=null">
+				<if test="users.username!=null">
+					and username = #{users.username}
+				</if>
+				<if test="users.password!=null">
+					and password = #{users.password}
+				</if>
+				<if test="users.createTime!=null">
+					and create_time = #{users.createTime}
+				</if>
+				<if test="users.lastTime!=null">
+					and last_time = #{users.lastTime}
+				</if>
+				<if test="users.vipNum!=null">
+					and vip_num = #{users.vipNum}
+				</if>
+				<if test="users.isPay!=null">
+					and is_pay = #{users.isPay}
+				</if>
+				<if test="users.email!=null">
+					and email = #{users.email}
+				</if>
+				<if test="users.isPhone!=null">
+					and is_phone = #{users.isPhone}
+				</if>
+				<if test="users.isPc!=null">
+					and is_pc = #{users.isPc}
+				</if>
+				<if test="users.fontFamily!=null">
+					and font_family = #{users.fontFamily}
+				</if>
+				<if test="users.advert!=null">
+					and advert = #{users.advert}
+				</if>
+				<if test="users.isAdvert!=null">
+					and is_advert = #{users.isAdvert}
+				</if>
+				<if test="users.extension!=null">
+					and extension = #{users.extension}
+				</if>
+				<if test="users.specialName!=null">
+					and special_name = #{users.specialName}
+				</if>
+				<if test="users.title1!=null">
+					and title1 = #{users.title1}
+				</if>
+				<if test="users.title2!=null">
+					and title2 = #{users.title2}
+				</if>
+				<if test="users.title3!=null">
+					and title3 = #{users.title3}
+				</if>
+				<if test="users.title4!=null">
+					and title4 = #{users.title4}
+				</if>
+				<if test="users.title5!=null">
+					and title5 = #{users.title5}
+				</if>
+				<if test="users.showNum!=null">
+					and show_num = #{users.showNum}
+				</if>
+				<if test="users.adminId!=null">
+					and admin_id = #{users.adminId}
+				</if>
+				<if test="users.isConfirm!=null">
+					and is_confirm = #{users.isConfirm}
+				</if>
+				<if test="users.isShow!=null">
+					and is_show = #{users.isShow}
+				</if>
+				<if test="users.style!=null">
+					and style = #{users.style}
+				</if>
+				<if test="users.mould!=null">
+					and mould = #{users.mould}
+				</if>
+				<if test="users.pcMould!=null">
+					and pc_mould = #{users.pcMould}
+				</if>
+				<if test="users.music!=null">
+					and music = #{users.music}
+				</if>
+				<if test="users.man!=null">
+					and man = #{users.man}
+				</if>
+				<if test="users.women!=null">
+					and women = #{users.women}
+				</if>
+				<if test="users.warnTime!=null">
+					and warn_time = #{users.warnTime}
+				</if>
+				<if test="users.house!=null">
+					and house = #{users.house}
+				</if>
+				<if test="users.address!=null">
+					and address = #{users.address}
+				</if>
+				<if test="users.image!=null">
+					and image = #{users.image}
+				</if>
+				<if test="users.message!=null">
+					and message = #{users.message}
+				</if>
+				<if test="users.coordinate!=null">
+					and coordinate = #{users.coordinate}
+				</if>
+				<if test="users.showTime!=null">
+					and show_time = #{users.showTime}
+				</if>
+				<if test="users.miniTime!=null">
+					and mini_time = #{users.miniTime}
+				</if>
+				<if test="users.bigImage!=null">
+					and big_image = #{users.bigImage}
+				</if>
+				<if test="users.title!=null">
+					and title = #{users.title}
+				</if>
+				<if test="users.bigTitle!=null">
+					and big_title = #{users.bigTitle}
+				</if>
+				<if test="users.weiXin!=null">
+					and wei_xin = #{users.weiXin}
+				</if>
+				<if test="users.video!=null">
+					and video = #{users.video}
+				</if>
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getPageList" resultMap="UsersResult">
+		select * from (select row_.*, rownum rownum_ from (
+			select 
+			<include refid="columnsSql"/>
+			from USERS
+			<include refid="whereSql"/>
+		<![CDATA[
+      	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
+		]]>
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from USERS
+		<include refid="whereSql"/>
+	</select>
+	
+	<select id="query" resultMap="UsersResult">
+		select 
+		<include refid="columnsSql"/>
+		from USERS
+		<include refid="whereSql"/>
+	</select>
+
+	<select id="load" resultMap="UsersResult">
+		select 
+		<include refid="columnsSql"/>
+		from USERS
+		where username=#{username} and password=#{password}
+	</select>
+
+	<update id="update">
+		update USERS
+		<set>
+			<if test="users.username != null">username=#{users.username},</if>
+			<if test="users.password != null">password=#{users.password},</if>
+			<if test="users.createTime != null">create_time=#{users.createTime},</if>
+			<if test="users.lastTime != null">last_time=#{users.lastTime},</if>
+			<if test="users.vipNum != null">vip_num=#{users.vipNum},</if>
+			<if test="users.isPay != null">is_pay=#{users.isPay},</if>
+			<if test="users.email != null">email=#{users.email},</if>
+			<if test="users.isPhone != null">is_phone=#{users.isPhone},</if>
+			<if test="users.isPc != null">is_pc=#{users.isPc},</if>
+			<if test="users.fontFamily != null">font_family=#{users.fontFamily},</if>
+			<if test="users.advert != null">advert=#{users.advert},</if>
+			<if test="users.isAdvert != null">is_advert=#{users.isAdvert},</if>
+			<if test="users.extension != null">extension=#{users.extension},</if>
+			<if test="users.specialName != null">special_name=#{users.specialName},</if>
+			<if test="users.title1 != null">title1=#{users.title1},</if>
+			<if test="users.title2 != null">title2=#{users.title2},</if>
+			<if test="users.title3 != null">title3=#{users.title3},</if>
+			<if test="users.title4 != null">title4=#{users.title4},</if>
+			<if test="users.title5 != null">title5=#{users.title5},</if>
+			<if test="users.showNum != null">show_num=#{users.showNum},</if>
+			<if test="users.adminId != null">admin_id=#{users.adminId},</if>
+			<if test="users.isConfirm != null">is_confirm=#{users.isConfirm},</if>
+			<if test="users.isShow != null">is_show=#{users.isShow},</if>
+			<if test="users.style != null">style=#{users.style},</if>
+			<if test="users.mould != null">mould=#{users.mould},</if>
+			<if test="users.pcMould != null">pc_mould=#{users.pcMould},</if>
+			<if test="users.music != null">music=#{users.music},</if>
+			<if test="users.man != null">man=#{users.man},</if>
+			<if test="users.women != null">women=#{users.women},</if>
+			<if test="users.warnTime != null">warn_time=#{users.warnTime},</if>
+			<if test="users.house != null">house=#{users.house},</if>
+			<if test="users.address != null">address=#{users.address},</if>
+			<if test="users.image != null">image=#{users.image},</if>
+			<if test="users.message != null">message=#{users.message},</if>
+			<if test="users.coordinate != null">coordinate=#{users.coordinate},</if>
+			<if test="users.showTime != null">show_time=#{users.showTime},</if>
+			<if test="users.miniTime != null">mini_time=#{users.miniTime},</if>
+			<if test="users.bigImage != null">big_image=#{users.bigImage},</if>
+			<if test="users.title != null">title=#{users.title},</if>
+			<if test="users.bigTitle != null">big_title=#{users.bigTitle},</if>
+			<if test="users.weiXin != null">wei_xin=#{users.weiXin},</if>
+			<if test="users.video != null">video=#{users.video}</if>
+		</set>
+		where id=#{users.id}
+	</update>
+
+	<insert id="insert" keyProperty="users.id">
+		insert into USERS(
+			id
+			<if test="users.username!=null">
+				,username
+			</if>
+			<if test="users.password!=null">
+				,password
+			</if>
+			<if test="users.createTime!=null">
+				,create_time
+			</if>
+			<if test="users.lastTime!=null">
+				,last_time
+			</if>
+			<if test="users.vipNum!=null">
+				,vip_num
+			</if>
+			<if test="users.isPay!=null">
+				,is_pay
+			</if>
+			<if test="users.email!=null">
+				,email
+			</if>
+			<if test="users.isPhone!=null">
+				,is_phone
+			</if>
+			<if test="users.isPc!=null">
+				,is_pc
+			</if>
+			<if test="users.fontFamily!=null">
+				,font_family
+			</if>
+			<if test="users.advert!=null">
+				,advert
+			</if>
+			<if test="users.isAdvert!=null">
+				,is_advert
+			</if>
+			<if test="users.extension!=null">
+				,extension
+			</if>
+			<if test="users.specialName!=null">
+				,special_name
+			</if>
+			<if test="users.title1!=null">
+				,title1
+			</if>
+			<if test="users.title2!=null">
+				,title2
+			</if>
+			<if test="users.title3!=null">
+				,title3
+			</if>
+			<if test="users.title4!=null">
+				,title4
+			</if>
+			<if test="users.title5!=null">
+				,title5
+			</if>
+			<if test="users.showNum!=null">
+				,show_num
+			</if>
+			<if test="users.adminId!=null">
+				,admin_id
+			</if>
+			<if test="users.isConfirm!=null">
+				,is_confirm
+			</if>
+			<if test="users.isShow!=null">
+				,is_show
+			</if>
+			<if test="users.style!=null">
+				,style
+			</if>
+			<if test="users.mould!=null">
+				,mould
+			</if>
+			<if test="users.pcMould!=null">
+				,pc_mould
+			</if>
+			<if test="users.music!=null">
+				,music
+			</if>
+			<if test="users.man!=null">
+				,man
+			</if>
+			<if test="users.women!=null">
+				,women
+			</if>
+			<if test="users.warnTime!=null">
+				,warn_time
+			</if>
+			<if test="users.house!=null">
+				,house
+			</if>
+			<if test="users.address!=null">
+				,address
+			</if>
+			<if test="users.image!=null">
+				,image
+			</if>
+			<if test="users.message!=null">
+				,message
+			</if>
+			<if test="users.coordinate!=null">
+				,coordinate
+			</if>
+			<if test="users.showTime!=null">
+				,show_time
+			</if>
+			<if test="users.miniTime!=null">
+				,mini_time
+			</if>
+			<if test="users.bigImage!=null">
+				,big_image
+			</if>
+			<if test="users.title!=null">
+				,title
+			</if>
+			<if test="users.bigTitle!=null">
+				,big_title
+			</if>
+			<if test="users.weiXin!=null">
+				,wei_xin
+			</if>
+			<if test="users.video!=null">
+				,video
+			</if>
+		) values(
+			 #{users.id}
+			<if test="users.username!=null">
+				 ,#{users.username}
+			</if>
+			<if test="users.password!=null">
+				 ,#{users.password}
+			</if>
+			<if test="users.createTime!=null">
+				 ,#{users.createTime}
+			</if>
+			<if test="users.lastTime!=null">
+				 ,#{users.lastTime}
+			</if>
+			<if test="users.vipNum!=null">
+				 ,#{users.vipNum}
+			</if>
+			<if test="users.isPay!=null">
+				 ,#{users.isPay}
+			</if>
+			<if test="users.email!=null">
+				 ,#{users.email}
+			</if>
+			<if test="users.isPhone!=null">
+				 ,#{users.isPhone}
+			</if>
+			<if test="users.isPc!=null">
+				 ,#{users.isPc}
+			</if>
+			<if test="users.fontFamily!=null">
+				 ,#{users.fontFamily}
+			</if>
+			<if test="users.advert!=null">
+				 ,#{users.advert}
+			</if>
+			<if test="users.isAdvert!=null">
+				 ,#{users.isAdvert}
+			</if>
+			<if test="users.extension!=null">
+				 ,#{users.extension}
+			</if>
+			<if test="users.specialName!=null">
+				 ,#{users.specialName}
+			</if>
+			<if test="users.title1!=null">
+				 ,#{users.title1}
+			</if>
+			<if test="users.title2!=null">
+				 ,#{users.title2}
+			</if>
+			<if test="users.title3!=null">
+				 ,#{users.title3}
+			</if>
+			<if test="users.title4!=null">
+				 ,#{users.title4}
+			</if>
+			<if test="users.title5!=null">
+				 ,#{users.title5}
+			</if>
+			<if test="users.showNum!=null">
+				 ,#{users.showNum}
+			</if>
+			<if test="users.adminId!=null">
+				 ,#{users.adminId}
+			</if>
+			<if test="users.isConfirm!=null">
+				 ,#{users.isConfirm}
+			</if>
+			<if test="users.isShow!=null">
+				 ,#{users.isShow}
+			</if>
+			<if test="users.style!=null">
+				 ,#{users.style}
+			</if>
+			<if test="users.mould!=null">
+				 ,#{users.mould}
+			</if>
+			<if test="users.pcMould!=null">
+				 ,#{users.pcMould}
+			</if>
+			<if test="users.music!=null">
+				 ,#{users.music}
+			</if>
+			<if test="users.man!=null">
+				 ,#{users.man}
+			</if>
+			<if test="users.women!=null">
+				 ,#{users.women}
+			</if>
+			<if test="users.warnTime!=null">
+				 ,#{users.warnTime}
+			</if>
+			<if test="users.house!=null">
+				 ,#{users.house}
+			</if>
+			<if test="users.address!=null">
+				 ,#{users.address}
+			</if>
+			<if test="users.image!=null">
+				 ,#{users.image}
+			</if>
+			<if test="users.message!=null">
+				 ,#{users.message}
+			</if>
+			<if test="users.coordinate!=null">
+				 ,#{users.coordinate}
+			</if>
+			<if test="users.showTime!=null">
+				 ,#{users.showTime}
+			</if>
+			<if test="users.miniTime!=null">
+				 ,#{users.miniTime}
+			</if>
+			<if test="users.bigImage!=null">
+				 ,#{users.bigImage}
+			</if>
+			<if test="users.title!=null">
+				 ,#{users.title}
+			</if>
+			<if test="users.bigTitle!=null">
+				 ,#{users.bigTitle}
+			</if>
+			<if test="users.weiXin!=null">
+				 ,#{users.weiXin}
+			</if>
+			<if test="users.video!=null">
+				 ,#{users.video}
+			</if>
+		)
+	</insert>
+
+	<delete id="delete">
+		delete from USERS
+		where id=#{id}
+	</delete>
+
+</mapper> 
