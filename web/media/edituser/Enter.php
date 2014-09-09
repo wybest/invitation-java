@@ -1,0 +1,1 @@
+BDBridge.rcvbase.__handleEnter({"bid":"b65079bdc435c1d3ba426a1d", "wordid":0, "word":"", "from":"浙江杭州", "wordtype":0, "lv":3, "lvp":4, "ftime":1387332403, "ltime":1387351445, "service_type":0, "zhixin":"", "saved":1, "time":1387351445, "group":[{"groupid":2, "groupname":"cn", "user":[{"subid":0, "islogin":0, "groupid":2, "subname":"YouVivid客服-小米"}]}]});

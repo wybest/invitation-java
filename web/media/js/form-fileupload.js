@@ -9,7 +9,22 @@ var FormFileUpload = function () {
             $('#fileupload').fileupload({
                 // Uncomment the following to send cross-domain cookies:
                 //xhrFields: {withCredentials: true},
-                url: 'assets/plugins/jquery-file-upload/server/php/'
+                url: '/upload',
+                previewMaxWidth : 200,
+                previewMaxHeight : 200
+            });
+
+            var uploader = $("#singlefileupload");
+            uploader.fileupload({
+                url : '/uploadBackground',
+                dataType: 'json',
+                autoUpload: true,
+                acceptFileTypes:  /(\.|\/)(gif|jpe?g|png)$/i,
+                maxNumberOfFiles : 1,
+                fileInput : uploader.find("input:file"),
+                maxFileSize: 5000000,
+                previewMaxWidth : 200,
+                previewMaxHeight : 200
             });
 
             // Load existing files:
@@ -17,7 +32,7 @@ var FormFileUpload = function () {
             $.ajax({
                 // Uncomment the following to send cross-domain cookies:
                 //xhrFields: {withCredentials: true},
-                url: $('#fileupload').fileupload('option', 'url'),
+                url: "/images",
                 dataType: 'json',
                 context: $('#fileupload')[0],
                 maxFileSize: 5000000,
@@ -28,8 +43,8 @@ var FormFileUpload = function () {
                         maxFileSize: 20000000 // 20MB
                     }, {
                         action: 'resize',
-                        maxWidth: 1440,
-                        maxHeight: 900
+                        maxWidth: 200,
+                        maxHeight: 200
                     }, {
                         action: 'save'
                     }
@@ -44,7 +59,7 @@ var FormFileUpload = function () {
             // Upload server status check for browsers with CORS support:
             if ($.support.cors) {
                 $.ajax({
-                    url: 'assets/plugins/jquery-file-upload/server/php/',
+                    url: '/check',
                     type: 'HEAD'
                 }).fail(function () {
                     $('<span class="alert alert-error"/>')

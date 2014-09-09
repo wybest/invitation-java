@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://121.40.84.83/index.php/purple.html?id=6168 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=false;" name="viewport">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" type="text/css" href="/style/slide/style1/mobile_template03.css">
+<script type="text/javascript" src="/style/slide/style1/jquery.js"></script>
+<script type="text/javascript" src="/style/slide/style1/jquery.ba-bbq.js"></script>
+<script type="text/javascript" src="/style/slide/style1/share.js"></script>
+<title>淡紫丁香</title>
+            </head>
+    <body style="padding-top: 20px;">
+    <div class="content-box" style="height: 640px; width: 360px;">
+        <!--Start 加载中 -->
+        <div class="loading" style="display: none;">
+            <span class="rect1" style="background-color: rgb(157, 121, 157);"></span><span class="rect2" style="background-color: rgb(157, 121, 157);"></span><span class="rect3" style="background-color: rgb(157, 121, 157);"></span><span class="rect4" style="background-color: rgb(157, 121, 157);"></span><span class="rect5" style="background-color: rgb(157, 121, 157);"></span><span class="rect6" style="background-color: rgb(157, 121, 157);"></span>
+        </div>
+        <!--End 加载中 -->
+        <!--<span class="up-btn" title="向上滑动" style="z-index:9999999999 !important"></span>-->
+        <span class="down-btn" title="向下滑动" style="z-index:9999999999 !important"></span>
+        <div class="load-msg" style="display:none"></div>
+        <div id="wrapid" class="tm-wrap clearfix" data-len="3">
+            <!--Start 第一屏-->
+            <div id="item1" class="tm-item item-one clearfix item_show" style="position: absolute; width: 360px; height: 640px; background-image: url(http://121.40.84.83/upload/061681409149719.jpeg);">
+                <div class="first-title">
+                    <i class="big-flower" style="background-image:url(/style/slide/style1/images/big_flower.png)"></i>
+                    <i class="small-flower" style="background-image:url(/style/slide/style1/images/small_flower.png);"></i>
+                    <i class="marry-en" style="background-image:url(/style/slide/style1/images/marry_en.png);"></i>
+                    <i class="marry-zh" style="background-image:url(/style/slide/style1/images/marry_zh.png);"></i>
+                    <i class="tool-bar" style="background-image:url(/style/slide/style1/images/tool_bar.png);"></i>
+                    <i class="marry-timer" style="background-image:url(/style/slide/style1/images/marry_time.png);"></i> 
+                </div>
+            </div>
+            <!--End 第一屏-->
+            <!--Start 相册2-->
+            <div id="item2" class="tm-item item-two clearfix" style="position: absolute; width: 360px; height: 640px;">
+                <div class="two-box">
+                    <p class="m-favour"><a id="support" href="javascript:;" style="background-color: rgba(157, 121, 157, 0.4);">9</a><a href="javascript:;" style="background-color: rgba(157, 121, 157, 0.701961);">406</a></p>
+                    <div class="two-inner" style="overflow: hidden;">
+                        <span class="ph-btn" style="background-color: rgba(157, 121, 157, 0.701961);"></span><span class="ph-btn" data-start="-60" data-end="0" style="background-color: rgba(157, 121, 157, 0.701961);"></span>
+                                                <ul id="photoList" class="clearfix" data-img="/upload/061681409149729.jpeg,/upload/061681409149791.jpeg,/upload/161681409149791.jpeg,/upload/261681409149791.jpeg,/upload/361681409149791.jpeg" style="width: 2160px; height: 640px; transition: 200ms; -webkit-transition: 200ms; margin-left: 0px;">
+                            <li class="li-first" style="width: 360px; height: 640px; overflow: hidden; background-image: url(http://121.40.84.83/upload/061681409149729.jpeg);"><img src="/style/slide/style1/061681409149729.jpeg" alt="" style="display:none">
+                                <span class="my-story" style="background-color:rgba(222,157,211,.7);background-image: url(/style/slide/style1/images/my_story.png);"><i class="bd1"></i></span>
+                            </li>
+                                                            <li style="width: 360px; height: 640px; overflow: hidden;"></li>
+                                                                <li style="width: 360px; height: 640px; overflow: hidden;"></li>
+                                                                <li style="width: 360px; height: 640px; overflow: hidden;"></li>
+                                                                <li style="width: 360px; height: 640px; overflow: hidden;"></li>
+                                                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--End 相册2-->
+            <!--Start 我要参加3 -->
+            <div id="item3" class="tm-item item-three" style="position: absolute; width: 360px; height: 640px; background-image: url(http://121.40.84.83/upload/061681409149738.jpeg);">
+                <a href="javascript:;" id="myLeave" class="go_in" style="background-image: url(/style/slide/style1/images/go_cj.png); background-color: rgba(157, 121, 157, 0.701961);"></a>
+                <a href="http://map.baidu.com/mobile/webapp/search/search/qt=s&wd=%E5%8C%97%E4%BA%AC%E5%B8%82%E7%9B%98%E5%8F%A4%E4%B8%83%E6%98%9F%E9%85%92%E5%BA%97/vt=map" class="go_in" style="background-image: url(/style/slide/style1/images/go_zl.png); background-color: rgba(157, 121, 157, 0.701961);"></a>
+
+            </div>
+            <!--End 我要参加3 -->
+            <!--Start 视频 -->
+                        <!--End 视频 -->
+            <!--Start 留言-->
+            <div class="leave-con" style="height: 544px; top: 96px; background-color: rgb(157, 121, 157);">
+                <span class="close_btn" style="background-color: rgb(157, 121, 157);"></span>
+                <form class="m-leave-fill" id="comment-form"  method="post">                <section class="m-fill-left li-row">
+                    <p class="m-fill-row">
+                        <input class="fl cm-bd-c" autocomplete="off" placeholder="您的名字" name="name" id="name" type="text" maxlength="99">                        <input class="fr cm-bd-c" autocomplete="off" placeholder="赴宴人数" name="pnum" id="pnum" type="text" maxlength="255">                    </p>
+                        <input type="hidden" value="${}" name="userId">
+                    <textarea class="m-fill-area cm-bd-c" autocomplete="off" placeholder="请输入您的祝福内容！" name="blessStr" id="blessStr"></textarea>                </section>
+                <input id="go-comment" class="m-fill-btn cm-bd-c li-row" type="submit" value="确定发送" data-start="100" data-end="0" style="color: rgb(157, 121, 157);">
+                </form>                <div class="leave_box" id="leaveContent" data-color="rgb(157,121,157)" style="height: 367px;">
+                    <ul class="m-leave-list clearfix" id="comment-items-list">
+<div class=" ">
+<span class="empty">赶紧给新人送上祝福吧~</span></div><div class="keys" style="display:none" title="/index.php/purple.html?id=6168"></div>
+</ul>                </div>
+            </div>
+            <!--End 留言-->
+        </div>
+        <input type="checkbox" name="" id="toggleMusic" checked="checked" style="z-index:9999999999 !important">
+        <label for="toggleMusic" class="m-toggle"></label>
+                <audio autoplay="autoplay" id="audio_play" loop="">
+            <source src="http://121.40.147.27/music/Lucky.mp3" type="audio/mpeg">
+        </audio>
+        </div>
+        <script>
+        
+ 
+            var myVideo = document.getElementById("audio_play");
+            function playVid()
+            {
+                myVideo.play();
+            }
+            function pauseVid()
+            {
+                myVideo.pause();
+            }
+            $(document).ready(function() {
+                $(document).one('touchstart', function(e) {
+                    if (myVideo.paused) {
+                        myVideo.play();
+                    }
+                });
+                if (/i(Phone|P(o|a)d)/.test(navigator.userAgent)) {
+                    if (myVideo.paused) {
+                        playVid();
+                        $('#toggleMusic').attr("checked", true);
+                    }
+                    playVid();
+                }
+                //音乐开关
+                $('.m-toggle').on('click', function() {
+                    if ($('#toggleMusic:checked').length == 0) {
+                        playVid();
+                    } else {
+                        pauseVid();
+                    }
+                });
+            });
+        </script>
+                <script>
+            _WXShare('http://121.40.84.83/upload/061681409149979.jpeg', '65', '65', '淡紫丁香', '2015年7月7日,我们结婚啦!北京市盘古七星酒店,诚邀', '');
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                WeixinJSBridge.call('hideToolbar');
+            });
+            $(document).ready(function() {
+                //赞
+                $('#support').click(function() {
+                    $.ajax({
+                        url: '/index.php/mobile/support-6168.html',
+                        type: 'POST',
+                        data: $(this).serialize(),
+                        dataType: 'json',
+                        success: function(json) {
+                            if (json.status === 200) {
+                                $("#support").attr("class", "m-curr");
+                                $("#support").text(json.num);
+                            } else {
+                                alert("服务器忙!");
+                            }
+                        }
+                    });
+                    return false;
+                });
+            })
+        </script>
+        <script>
+            //祝福
+            $('#comment-form').submit(function(event) {
+                // event.preventDefault();
+
+
+
+                $.ajax({
+                    url: '/blessing/add',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    dataType: 'json',
+                    success: function(json) {
+                        if (json.message) {
+                            $('#comment-form').find("textarea").val('');
+                            $.fn.yiiListView.update("comment-items-list");
+
+                            alert(json.message);
+
+                        } else {
+                            alert(json.error);
+                        }
+                    }
+                });
+                return false;
+            });
+        </script>
+    <script type="text/javascript" src="/style/slide/style1/jquery.yiilistview.js"></script>
+<script type="text/javascript" src="/style/slide/style1/mobile_template04.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+jQuery('#comment-items-list').yiiListView({'ajaxUpdate':['comment-items-list'],'ajaxVar':'ajax','pagerClass':'cm-page','loadingClass':'list-view-loading','sorterClass':'sorter','enableHistory':false});
+});
+/*]]>*/
+</script>
+
+</body></html>

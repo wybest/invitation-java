@@ -1,0 +1,5 @@
+@font-face {
+font-family:粗钢笔2;
+Src:
+url(http://tw.youvivid.com:8080/Fonts/getfont/bb82951e-a03b-43f0-b88d-109b17ac42e1iwoff)  format("woff");
+}

@@ -8,5 +8,7 @@
     </settings>
     <mappers>
         <mapper resource="com/wndxf/invitation/persistence/model/Users.xml"/>
+        <mapper resource="com/wndxf/invitation/persistence/model/Blessing.xml"/>
+        <mapper resource="com/wndxf/invitation/persistence/model/WyPower.xml"/>
     </mappers>
 </configuration>

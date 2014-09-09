@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"    
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.wndxf.invitation.persistence.WyPowerDAO">
+
+	<resultMap type="com.wndxf.invitation.persistence.model.WyPower" id="WyPowerResult">
+		<id column="id" property="id"/>
+		<result column="admin_name" property="adminName"/>
+		<result column="admin_password" property="adminPassword"/>
+		<result column="price" property="price"/>
+    </resultMap>
+	
+	<sql id="columnsSql">
+		id,
+		admin_name,
+		admin_password,
+		price
+	</sql>
+	
+	<sql id="whereSql">
+		<where>
+			<if test="wyPower !=null">
+				<if test="wyPower.adminName!=null">
+					and admin_name = #{wyPower.adminName}
+				</if>
+				<if test="wyPower.adminPassword!=null">
+					and admin_password = #{wyPower.adminPassword}
+				</if>
+				<if test="wyPower.price!=null">
+					and price = #{wyPower.price}
+				</if>
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getPageList" resultMap="WyPowerResult">
+		select * from (select row_.*, rownum rownum_ from (
+			select 
+			<include refid="columnsSql"/>
+			from WY_POWER
+			<include refid="whereSql"/>
+		<![CDATA[
+      	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
+		]]>
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from WY_POWER
+		<include refid="whereSql"/>
+	</select>
+	
+	<select id="query" resultMap="WyPowerResult">
+		select 
+		<include refid="columnsSql"/>
+		from WY_POWER
+		<include refid="whereSql"/>
+	</select>
+
+	<select id="load" resultMap="WyPowerResult">
+		select 
+		<include refid="columnsSql"/>
+		from WY_POWER
+		where id=#{id}
+	</select>
+
+	<update id="update">
+		update WY_POWER
+		<set>
+			<if test="wyPower.adminName != null">admin_name=#{wyPower.adminName},</if>
+			<if test="wyPower.adminPassword != null">admin_password=#{wyPower.adminPassword},</if>
+			<if test="wyPower.price != null">price=#{wyPower.price}</if>
+		</set>
+		where id=#{wyPower.id}
+	</update>
+
+	<insert id="insert" keyProperty="wyPower.id">
+		insert into WY_POWER(
+			id
+			<if test="wyPower.adminName!=null">
+				,admin_name
+			</if>
+			<if test="wyPower.adminPassword!=null">
+				,admin_password
+			</if>
+			<if test="wyPower.price!=null">
+				,price
+			</if>
+		) values(
+			 #{wyPower.id}
+			<if test="wyPower.adminName!=null">
+				 ,#{wyPower.adminName}
+			</if>
+			<if test="wyPower.adminPassword!=null">
+				 ,#{wyPower.adminPassword}
+			</if>
+			<if test="wyPower.price!=null">
+				 ,#{wyPower.price}
+			</if>
+		)
+	</insert>
+
+	<delete id="delete">
+		delete from WY_POWER
+		where id=#{id}
+	</delete>
+
+</mapper> 

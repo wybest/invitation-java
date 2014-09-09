@@ -3,9 +3,9 @@
              xmlns:beans="http://www.springframework.org/schema/beans"
              xmlns:context="http://www.springframework.org/schema/context"
              xmlns:mvc="http://www.springframework.org/schema/mvc"
-             xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 
@@ -26,6 +26,9 @@
     <!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory-->
     <resources mapping="/media/**" location="/media/"/>
     <resources mapping="/html/**" location="/html/"/>
+    <resources mapping="/style/**" location="/style/"/>
+    <resources mapping="/marryimg/**" location="/marryimg/"/>
+    <resources mapping="/js/**" location="/js/"/>
 
     <!-- Jackson转换器 -->
     <beans:bean id="mappingJacksonHttpMessageConverter"
@@ -52,10 +55,18 @@
         </beans:property>
     </beans:bean>
 
-    <beans:bean class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-        <beans:property name="prefix" value=""/>
+    <beans:bean class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <beans:property name="cache" value="false"/>
+        <!--是否缓存模板-->
+        <beans:property name="order" value="10"/>
         <beans:property name="suffix" value=".vm"/>
+        <beans:property name="prefix" value=""/>
+        <beans:property name="layoutUrl" value="/layout/default.vm"/>
+        <beans:property name="exposeSpringMacroHelpers" value="true"/>
+        <beans:property name="dateToolAttribute" value="dateTool"/>
+        <beans:property name="numberToolAttribute" value="numberTool"/>
         <beans:property name="contentType" value="text/html;charset=UTF-8"/>
+        <beans:property name="requestContextAttribute" value="rc"/>
     </beans:bean>
 
     <beans:bean id="maxUploadSize" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
@@ -63,6 +74,8 @@
         <!-- 上传文件大小限制为31M，31*1024*1024 -->
         <beans:property name="maxInMemorySize" value="4096"/>
     </beans:bean>
+
+    <beans:bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 
 </beans:beans>

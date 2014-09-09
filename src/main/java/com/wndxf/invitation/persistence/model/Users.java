@@ -50,6 +50,7 @@ public class Users implements Serializable {
 	private String bigTitle;
 	private String weiXin;
 	private String video;
+    private String background;
 
 	public Integer getId() {
  		return this.id;
@@ -403,5 +404,11 @@ public class Users implements Serializable {
  		this.video = video;
 	}
 
+    public String getBackground() {
+        return background;
+    }
 
+    public void setBackground(String background) {
+        this.background = background;
+    }
 }

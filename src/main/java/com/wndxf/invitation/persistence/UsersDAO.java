@@ -15,9 +15,11 @@ public interface UsersDAO {
 
 	public Users load(@Param("username") String username,@Param("password") String password);
 
-	public void update(@Param("users") Users users);
+    public int touch(@Param("users") Users users);
 
-	public void insert(@Param("users") Users users);
+	public int update(@Param("users") Users users);
 
-	public void delete(@Param("id") Integer id);
+	public int insert(@Param("users") Users users);
+
+	public int delete(@Param("id") Integer id);
 }

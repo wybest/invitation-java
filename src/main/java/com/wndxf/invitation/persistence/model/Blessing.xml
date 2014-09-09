@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>    
+<!DOCTYPE mapper    
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"    
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.wndxf.invitation.persistence.BlessingDAO">
+
+	<resultMap type="com.wndxf.invitation.persistence.model.Blessing" id="BlessingResult">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="pnum" property="pnum"/>
+		<result column="bless_str" property="blessStr"/>
+		<result column="time" property="time"/>
+		<result column="user_id" property="userId"/>
+    </resultMap>
+	
+	<sql id="columnsSql">
+		id,
+		name,
+		pnum,
+		bless_str,
+		time,
+		user_id
+	</sql>
+	
+	<sql id="whereSql">
+		<where>
+			<if test="blessing !=null">
+				<if test="blessing.name!=null">
+					and name = #{blessing.name}
+				</if>
+				<if test="blessing.pnum!=null">
+					and pnum = #{blessing.pnum}
+				</if>
+				<if test="blessing.blessStr!=null">
+					and bless_str = #{blessing.blessStr}
+				</if>
+				<if test="blessing.time!=null">
+					and time = #{blessing.time}
+				</if>
+				<if test="blessing.userId!=null">
+					and user_id = #{blessing.userId}
+				</if>
+			</if>
+		</where>
+	</sql>
+	
+	<select id="getPageList" resultMap="BlessingResult">
+		select * from (select row_.*, rownum rownum_ from (
+			select 
+			<include refid="columnsSql"/>
+			from BLESSING
+			<include refid="whereSql"/>
+		<![CDATA[
+      	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
+		]]>
+	</select>
+	
+	<select id="count" resultType="java.lang.Integer">
+		select count(*) from BLESSING
+		<include refid="whereSql"/>
+	</select>
+	
+	<select id="query" resultMap="BlessingResult">
+		select 
+		<include refid="columnsSql"/>
+		from BLESSING
+		<include refid="whereSql"/>
+	</select>
+
+	<select id="load" resultMap="BlessingResult">
+		select 
+		<include refid="columnsSql"/>
+		from BLESSING
+		where id=#{id}
+	</select>
+
+	<update id="update">
+		update BLESSING
+		<set>
+			<if test="blessing.name != null">name=#{blessing.name},</if>
+			<if test="blessing.pnum != null">pnum=#{blessing.pnum},</if>
+			<if test="blessing.blessStr != null">bless_str=#{blessing.blessStr},</if>
+			<if test="blessing.time != null">time=#{blessing.time},</if>
+			<if test="blessing.userId != null">user_id=#{blessing.userId}</if>
+		</set>
+		where id=#{blessing.id}
+	</update>
+
+	<insert id="insert" keyProperty="blessing.id">
+		insert into BLESSING(
+			id
+			<if test="blessing.name!=null">
+				,name
+			</if>
+			<if test="blessing.pnum!=null">
+				,pnum
+			</if>
+			<if test="blessing.blessStr!=null">
+				,bless_str
+			</if>
+			<if test="blessing.time!=null">
+				,time
+			</if>
+			<if test="blessing.userId!=null">
+				,user_id
+			</if>
+		) values(
+			 #{blessing.id}
+			<if test="blessing.name!=null">
+				 ,#{blessing.name}
+			</if>
+			<if test="blessing.pnum!=null">
+				 ,#{blessing.pnum}
+			</if>
+			<if test="blessing.blessStr!=null">
+				 ,#{blessing.blessStr}
+			</if>
+			<if test="blessing.time!=null">
+				 ,now()
+			</if>
+			<if test="blessing.userId!=null">
+				 ,#{blessing.userId}
+			</if>
+		)
+	</insert>
+
+	<delete id="delete">
+		delete from BLESSING
+		where id=#{id}
+	</delete>
+
+</mapper> 

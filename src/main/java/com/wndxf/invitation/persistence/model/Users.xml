@@ -49,6 +49,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<result column="big_title" property="bigTitle"/>
 		<result column="wei_xin" property="weiXin"/>
 		<result column="video" property="video"/>
+        <result column="background" property="background"/>
+
     </resultMap>
 	
 	<sql id="columnsSql">
@@ -94,7 +96,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		title,
 		big_title,
 		wei_xin,
-		video
+		video,
+		background
 	</sql>
 	
 	<sql id="whereSql">
@@ -305,9 +308,14 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="users.bigTitle != null">big_title=#{users.bigTitle},</if>
 			<if test="users.weiXin != null">wei_xin=#{users.weiXin},</if>
 			<if test="users.video != null">video=#{users.video}</if>
+            <if test="users.background != null">background=#{users.background}</if>
 		</set>
 		where id=#{users.id}
 	</update>
+
+    <update id="touch">
+        update USERS set last_time=now() where id=#{users.id}
+    </update>
 
 	<insert id="insert" keyProperty="users.id">
 		insert into USERS(
@@ -447,10 +455,10 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 				 ,#{users.password}
 			</if>
 			<if test="users.createTime!=null">
-				 ,#{users.createTime}
+				 ,now()
 			</if>
 			<if test="users.lastTime!=null">
-				 ,#{users.lastTime}
+				 ,now()
 			</if>
 			<if test="users.vipNum!=null">
 				 ,#{users.vipNum}
