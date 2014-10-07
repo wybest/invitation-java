@@ -263,6 +263,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		where username=#{username} and password=#{password}
 	</select>
 
+    <select id="loadById" resultMap="UsersResult">
+        select
+        <include refid="columnsSql"/>
+        from USERS
+        where id=#{id}
+    </select>
+
 	<update id="update">
 		update USERS
 		<set>

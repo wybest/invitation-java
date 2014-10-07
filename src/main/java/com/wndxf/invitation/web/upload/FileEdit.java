@@ -79,6 +79,11 @@ public class FileEdit extends Base {
                     images[2] = fileName;
                     saveFile(user,images,file,targetFile,deleteFile);
                     break;
+                case "file4":
+                    deleteFile = images[3];
+                    images[3] = fileName;
+                    saveFile(user,images,file,targetFile,deleteFile);
+                    break;
 
             }
             returnMap.put("files",files);
@@ -92,7 +97,7 @@ public class FileEdit extends Base {
         GlobalDefine.deleteFile(new File(GlobalDefine.imagePath+deleteFile));
         user.setBackground(GlobalDefine.getBackground(images));
         usersDAO.update(user);
-        file.transferTo(targetFile);
+        FileCopyUtils.copy(file.getBytes(), new FileOutputStream(targetFile));
     }
 
     @RequestMapping(value="upload", method = RequestMethod.POST)
@@ -106,7 +111,6 @@ public class FileEdit extends Base {
 
         //2. get each file
         while(itr.hasNext()){
-
             //2.1 get next MultipartFile
             mpf = request.getFile(itr.next());
 
@@ -126,11 +130,21 @@ public class FileEdit extends Base {
             fileMeta.setDelete_url("/deleteImg?filename="+fileMeta.getName());
             fileMeta.setDelete_type("GET");
             try {
-
-                Users oldUser = getUser(session);
-                String imageStr = oldUser.getImage()==null||oldUser.getImage().length()==0?fileName:oldUser.getImage()+","+fileName;
-                oldUser.setImage(imageStr);
-                usersDAO.update(oldUser);
+                //并发问题,最好是放到session里，但是这里量不大，就来个全局锁，大并发性能有问题
+                //问题是同时间读出来的image是一样的，这样不同线程就会丢数据
+                GlobalDefine.lock.lock();
+                try {
+                    Users oldUser = getUser(session);
+                    String imageStr = oldUser.getImage() == null || oldUser.getImage().length() == 0 ? fileName : oldUser.getImage() + "," + fileName;
+                    String[] len = imageStr.split(",");
+                    if (len.length > 30) {
+                        return returnMap;
+                    }
+                    oldUser.setImage(imageStr);
+                    usersDAO.update(oldUser);
+                }finally {
+                        GlobalDefine.lock.unlock();
+                    }
                 // copy file to local disk (make sure the path "e.g. D:/temp/files" exists)
                 FileCopyUtils.copy(mpf.getBytes(), new FileOutputStream(GlobalDefine.getImagePath()+fileName));
 

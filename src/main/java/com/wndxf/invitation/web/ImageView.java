@@ -58,9 +58,17 @@ public class ImageView {
 
     @RequestMapping(value = "/qrCode", method=RequestMethod.GET)
     public String qrCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String qrtext = request.getParameter("qrtext");
+        String qr = request.getParameter("qr");
+        String url = "";
+        if(qr.equals("normal")){
+            url = "http://"+request.getServerName()+":"+request.getServerPort()+"/phone?path=slide/templete1&user=2454";
+        }
+        if(qr.equals("special")){
+            String spId = request.getParameter("spId");
+            url = "http://"+request.getServerName()+":"+request.getServerPort()+"/phone?path=slide/templete1&user=2454&sp="+spId;
+        }
 
-        ByteArrayOutputStream out = QRCode.from(qrtext).to(
+        ByteArrayOutputStream out = QRCode.from(url).to(
                 ImageType.PNG).stream();
 
         response.setContentType("image/png");

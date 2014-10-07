@@ -2,9 +2,12 @@ package com.wndxf.invitation.web.user;
 
 import com.google.code.kaptcha.Constants;
 import com.wndxf.invitation.GlobalDefine;
+import com.wndxf.invitation.persistence.BlessingDAO;
 import com.wndxf.invitation.persistence.UsersDAO;
+import com.wndxf.invitation.persistence.model.Blessing;
 import com.wndxf.invitation.persistence.model.Users;
 import com.wndxf.invitation.web.Base;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,9 +30,13 @@ public class UserEdit extends Base{
     @Resource
     private UsersDAO usersDAO;
 
+    @Autowired
+    private BlessingDAO blessingDAO;
+
     @RequestMapping(value = "/user/admin")
     public ModelAndView userAdmin(ModelMap modelMap) {
-        return new ModelAndView("user/user_admin",modelMap);
+        modelMap.put("menu","home");
+        return new ModelAndView("user/home",modelMap);
     }
 
     @RequestMapping(value = "/user/edit", method= RequestMethod.POST)
@@ -46,8 +54,15 @@ public class UserEdit extends Base{
     }
 
     @RequestMapping(value = "/user/show", method= RequestMethod.GET)
-    public String userShow(@RequestParam(value = "template")String template) {
-        return "user/"+template;//edit_slid edit_background edit_background  edit_images
+    public ModelAndView userShow(@RequestParam(value = "template")String template,ModelMap modelMap,HttpSession session) {
+        modelMap.put("menu",template);
+        if(template.equals("blessing")){
+            Blessing bs = new Blessing();
+            bs.setUserId(getUserId(session));
+            List<Blessing> blessings = blessingDAO.query(bs);
+            modelMap.put("blesses",blessings);
+        }
+        return new ModelAndView("user/"+template,modelMap);//edit_slid edit_background edit_background  edit_images
     }
 
     @RequestMapping(value = "regist", method= RequestMethod.POST)

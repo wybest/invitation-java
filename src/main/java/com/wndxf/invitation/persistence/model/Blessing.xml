@@ -99,9 +99,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="blessing.blessStr!=null">
 				,bless_str
 			</if>
-			<if test="blessing.time!=null">
 				,time
-			</if>
 			<if test="blessing.userId!=null">
 				,user_id
 			</if>
@@ -116,9 +114,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="blessing.blessStr!=null">
 				 ,#{blessing.blessStr}
 			</if>
-			<if test="blessing.time!=null">
 				 ,now()
-			</if>
 			<if test="blessing.userId!=null">
 				 ,#{blessing.userId}
 			</if>

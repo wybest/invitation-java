@@ -74,7 +74,7 @@ body{background:#333}
 .tm-wrap .item_show{/*position:static;*/display:block;z-index:5;}
 .tm-wrap .current{z-index:6;display:block;}
 #toggleMusic{display:none}
-#toggleMusic+.m-toggle{background-image:url(../images/sprite/sprite_icon.png);-webkit-background-size:40px auto;-moz-background-size:40px auto;-o-background-size:40px auto;background-size:40px auto;background-repeat:no-repeat;}
+#toggleMusic+.m-toggle{background-image:url();-webkit-background-size:40px auto;-moz-background-size:40px auto;-o-background-size:40px auto;background-size:40px auto;background-repeat:no-repeat;}
 #toggleMusic+.m-toggle{position:absolute;right:10px;top:80px;width:30px;height:30px;background-position:1px -29px;border-radius:50%;z-index:120;}
 #toggleMusic:checked+.m-toggle{background-position:1px 1px;-webkit-animation:myanimate 3s forwards;-moz-anima4tion:myanimate 3s infinite alternate;-o-animation:myanimate 3s infinite alternate;-ms-animation:myanimate 3s infinite alternate;animation:myanimate 3s infinite alternate;}
 .we-line{position:absolute;left:0;bottom:-50px;width:100%;line-height:26px;text-align:center;color:rgb(255,255,255);font:bold 15px/26px welcomeFont,\5FAE\8F6F\96C5\9ED1;z-index:9995;word-break:keep-all;white-space:nowrap}

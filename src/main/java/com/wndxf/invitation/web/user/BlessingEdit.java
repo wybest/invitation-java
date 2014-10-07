@@ -7,10 +7,9 @@ import com.wndxf.invitation.web.Base;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
@@ -65,14 +64,4 @@ public class BlessingEdit extends Base {
         return returnMap;
     }
 
-    @RequestMapping(value = "blessing/show", method= RequestMethod.POST)
-    public @ResponseBody
-    Map<String, Object> show(HttpSession session) throws IOException {
-        Map<String, Object> returnMap = new HashMap<>();
-        Blessing bs = new Blessing();
-        bs.setUserId(getUserId(session));
-        List<Blessing> blessings = blessingDAO.query(bs);
-        returnMap.put("list",blessings);
-        return returnMap;
-    }
 }

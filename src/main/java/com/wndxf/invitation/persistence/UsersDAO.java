@@ -15,6 +15,8 @@ public interface UsersDAO {
 
 	public Users load(@Param("username") String username,@Param("password") String password);
 
+    public Users loadById(@Param("id") int id);
+
     public int touch(@Param("users") Users users);
 
 	public int update(@Param("users") Users users);

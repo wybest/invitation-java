@@ -4,6 +4,12 @@
 
     <link rel="stylesheet" type="text/css" href="/media/css/chosen.css" />
 
+    <body class="page-header-fixed">
+
+
+    <!-- BEGIN PAGE CONTAINER-->
+
+    <div class="container-fluid">
     <!-- BEGIN PAGE HEADER-->
 
     <div class="row-fluid">
@@ -15,7 +21,9 @@
 
 
             <!-- END BEGIN STYLE CUSTOMIZER -->
+            <h3 class="page-title">
 
+            </h3>
 
             <ul class="breadcrumb">
 
@@ -96,7 +104,7 @@
 
                         <div class="controls">
 
-                            <input type="text" name="bigTitle" data-required="1" class="span6 m-wrap" value="XX与XX结婚了"/>
+                            <input type="text" name="bigTitle" data-required="1" class="span6 m-wrap" value="$!user.bigTitle"/>
 
                         </div>
 
@@ -108,7 +116,7 @@
 
                         <div class="controls">
 
-                            <input type="text" name="weiXin" data-required="1" class="span6 m-wrap" value="诚挚邀请您来参加，点击查看详情."/>
+                            <input type="text" name="weiXin" data-required="1" class="span6 m-wrap" value="$!user.weiXin"/>
 
                         </div>
 
@@ -120,7 +128,7 @@
 
                         <div class="controls">
 
-                            <input type="text" name="address" data-required="1" class="span6 m-wrap" />
+                            <input type="text" name="address" data-required="1" class="span6 m-wrap" value="$!user.address"/>
 
                         </div>
 
@@ -132,7 +140,7 @@
 
                         <div class="controls">
 
-                            <input type="text" name="coordinate" data-required="1" class="span6 m-wrap" />
+                            <input type="text" name="coordinate" data-required="1" class="span6 m-wrap" value="$!user.coordinate"/>
                             <span class="help-inline"><a href="http://api.map.baidu.com/lbsapi/getpoint/index.html">获取坐标</a> </span>
 
                         </div>
@@ -145,19 +153,48 @@
 
                         <div class="controls">
 
-                            <select class="span6 m-wrap" name="music">
+                            <select class="span6 m-wrap" name="music" onchange="changeMusic(this.value)">
 
-                                <option value="">Select...</option>
-
-                                <option value="Category 1">Category 1</option>
-
-                                <option value="Category 2">Category 2</option>
-
-                                <option value="Category 3">Category 5</option>
-
-                                <option value="Category 4">Category 4</option>
+                                #foreach($mp3Name in $mp3Names)
+                                    #set($index=$velocityCount - 1)
+                                    <option value="$mp3Ids.get($index)" #if($mp3Ids.get($index) == $!user.music) selected="selected" #end>$mp3Name</option>
+                                #end
 
                             </select>
+                            <style type="text/css">
+                                #musicControl { float: right;margin-right: 280px;margin-top: -10px;}
+                                #musicControl a { display:inline-block;width:52px;height:52px;overflow:hidden;background:url('/style/mcbg.png') no-repeat;}
+                                #musicControl a audio{width:100%;height:52px;}
+                                #musicControl a.stop { background-position:left bottom;}
+                                #musicControl a.on { background-position:left top;}
+                                #music_play_filter{width:100%;height:100%;overflow:hidden;position:top:0;left:0}
+                            </style>
+
+                            <span id="musicControl">
+                                <a id="mc_play" class="stop" onclick="play_music();">
+                                    <audio id="musicfx" loop="loop" autoplay="autoplay">
+                                        <source src="/music/$!user.music" type="audio/mpeg" />
+                                    </audio>
+                                </a>
+                            </span>
+
+                            <script type="text/javascript">
+                                function play_music(){
+                                    if ($('#mc_play').hasClass('on')){
+                                        $('#mc_play audio').get(0).pause();
+                                        $('#mc_play').attr('class','stop');
+                                    }else{
+                                        $('#mc_play audio').get(0).play();
+                                        $('#mc_play').attr('class','on');
+                                    }
+                                }
+                                $('#mc_play audio').get(0).pause();
+                                function changeMusic(music){
+                                    $('#mc_play').empty();
+                                    $('#mc_play').append('<audio id="musicfx" loop="loop" autoplay="autoplay"><source src="/music/'+music+'" type="audio/mpeg" /></audio>')
+                                    $('#mc_play').attr('class','on');
+                                }
+                            </script>
 
                         </div>
 
@@ -165,9 +202,7 @@
 
                     <div class="form-actions">
 
-                        <button type="submit" class="btn purple">Validate</button>
-
-                        <button type="button" class="btn">Cancel</button>
+                        <button type="submit" class="btn purple">提交</button>
 
                     </div>
 
@@ -185,7 +220,8 @@
 
 </div>
 
-
+</div>
+</body>
 
 
 <!-- BEGIN PAGE LEVEL PLUGINS -->
@@ -228,5 +264,3 @@
 <script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
 
 <!-- END BODY -->
-
-</html>

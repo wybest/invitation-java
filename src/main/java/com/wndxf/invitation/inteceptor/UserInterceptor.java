@@ -49,6 +49,9 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
         if(StringUtils.isNotEmpty(user.getImage())){
             modelAndView.getModelMap().put("bigImages",user.getImage().split(","));
         }
+        //music
+        modelAndView.getModelMap().put("mp3Names",GlobalDefine.mp3Names);
+        modelAndView.getModelMap().put("mp3Ids",GlobalDefine.mp3Ids);
     }
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
