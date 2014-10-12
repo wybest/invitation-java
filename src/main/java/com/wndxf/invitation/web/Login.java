@@ -23,6 +23,9 @@ public class Login {
     @Resource
     private UsersDAO usersDAO;
 
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory
+            .getLogger(Login.class);
+
     @RequestMapping(value = "/login")
     public ModelAndView login() {
         return new ModelAndView("login",null);

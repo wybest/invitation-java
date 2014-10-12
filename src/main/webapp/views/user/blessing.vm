@@ -72,7 +72,7 @@
 
 <div class="portlet-title">
 
-    <div class="caption"><i class="icon-globe"></i>Managed Table</div>
+    <div class="caption"><i class="icon-globe"></i>回函查看</div>
 
     <div class="tools">
 
@@ -126,7 +126,7 @@
 
     <td class="center hidden-480">$dateTool.format("FULL", $item.time) </td>
 
-    <td ><span class="label label-success">Approved</span></td>
+    <td ><span class="label"><a href="/user/blessing/delete?blessingId=$item.id" class="btn red icn-only" "><i class="icon-remove icon-white"></i></a></span></td>
 
 </tr>
     #end
@@ -176,6 +176,7 @@
         TableManaged.init();
 
     });
+
 
 </script>
 

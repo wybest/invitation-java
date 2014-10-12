@@ -28,10 +28,10 @@ var TableManaged = function () {
                 "sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
-                    "sLengthMenu": "_MENU_ records per page",
+                    "sLengthMenu": "_MENU_ 每页显示条数",
                     "oPaginate": {
-                        "sPrevious": "Prev",
-                        "sNext": "Next"
+                        "sPrevious": "上一页",
+                        "sNext": "下一页"
                     }
                 },
                 "aoColumnDefs": [{

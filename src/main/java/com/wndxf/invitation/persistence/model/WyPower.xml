@@ -39,7 +39,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		select * from (select row_.*, rownum rownum_ from (
 			select 
 			<include refid="columnsSql"/>
-			from WY_POWER
+			from wy_power
 			<include refid="whereSql"/>
 		<![CDATA[
       	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
@@ -47,26 +47,26 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="count" resultType="java.lang.Integer">
-		select count(*) from WY_POWER
+		select count(*) from wy_power
 		<include refid="whereSql"/>
 	</select>
 	
 	<select id="query" resultMap="WyPowerResult">
 		select 
 		<include refid="columnsSql"/>
-		from WY_POWER
+		from wy_power
 		<include refid="whereSql"/>
 	</select>
 
 	<select id="load" resultMap="WyPowerResult">
 		select 
 		<include refid="columnsSql"/>
-		from WY_POWER
+		from wy_power
 		where id=#{id}
 	</select>
 
 	<update id="update">
-		update WY_POWER
+		update wy_power
 		<set>
 			<if test="wyPower.adminName != null">admin_name=#{wyPower.adminName},</if>
 			<if test="wyPower.adminPassword != null">admin_password=#{wyPower.adminPassword},</if>
@@ -76,7 +76,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<insert id="insert" keyProperty="wyPower.id">
-		insert into WY_POWER(
+		insert into wy_power(
 			id
 			<if test="wyPower.adminName!=null">
 				,admin_name
@@ -102,7 +102,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<delete id="delete">
-		delete from WY_POWER
+		delete from wy_power
 		where id=#{id}
 	</delete>
 

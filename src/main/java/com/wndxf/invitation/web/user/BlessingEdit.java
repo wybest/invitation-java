@@ -64,4 +64,14 @@ public class BlessingEdit extends Base {
         return returnMap;
     }
 
+    @RequestMapping(value = "user/blessing/delete", method= RequestMethod.GET)
+    public ModelAndView delete(int blessingId,ModelMap modelMap,HttpSession session) throws IOException {
+        blessingDAO.delete(blessingId);
+        Blessing bs = new Blessing();
+        bs.setUserId(getUserId(session));
+        List<Blessing> blessings = blessingDAO.query(bs);
+        modelMap.put("blesses",blessings);
+        return new ModelAndView("user/blessing",modelMap);
+    }
+
 }

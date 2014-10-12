@@ -200,7 +200,7 @@
 
 <li>
 
-    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+    <!-- BEGIN RESPONSIVE QUICK SEARCH FORM
 
     <form class="sidebar-search">
 
@@ -214,7 +214,7 @@
 
         </div>
 
-    </form>
+    </form>-->
 
     <!-- END RESPONSIVE QUICK SEARCH FORM -->
 

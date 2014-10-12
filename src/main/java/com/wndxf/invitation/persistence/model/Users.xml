@@ -5,7 +5,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.wndxf.invitation.persistence.UsersDAO">
 
-	<resultMap type="com.wndxf.invitation.persistence.model.Users" id="UsersResult">
+	<resultMap type="com.wndxf.invitation.persistence.model.Users" id="usersResult">
 		<id column="id" property="id"/>
 		<result column="username" property="username"/>
 		<result column="password" property="password"/>
@@ -233,11 +233,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		</where>
 	</sql>
 	
-	<select id="getPageList" resultMap="UsersResult">
+	<select id="getPageList" resultMap="usersResult">
 		select * from (select row_.*, rownum rownum_ from (
 			select 
 			<include refid="columnsSql"/>
-			from USERS
+			from users
 			<include refid="whereSql"/>
 		<![CDATA[
       	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
@@ -245,33 +245,33 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="count" resultType="java.lang.Integer">
-		select count(*) from USERS
+		select count(*) from users
 		<include refid="whereSql"/>
 	</select>
 	
-	<select id="query" resultMap="UsersResult">
+	<select id="query" resultMap="usersResult">
 		select 
 		<include refid="columnsSql"/>
-		from USERS
+		from users
 		<include refid="whereSql"/>
 	</select>
 
-	<select id="load" resultMap="UsersResult">
+	<select id="load" resultMap="usersResult">
 		select 
 		<include refid="columnsSql"/>
-		from USERS
+		from users
 		where username=#{username} and password=#{password}
 	</select>
 
-    <select id="loadById" resultMap="UsersResult">
+    <select id="loadById" resultMap="usersResult">
         select
         <include refid="columnsSql"/>
-        from USERS
+        from users
         where id=#{id}
     </select>
 
 	<update id="update">
-		update USERS
+		update users
 		<set>
 			<if test="users.username != null">username=#{users.username},</if>
 			<if test="users.password != null">password=#{users.password},</if>
@@ -321,11 +321,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</update>
 
     <update id="touch">
-        update USERS set last_time=now() where id=#{users.id}
+        update users set last_time=now() where id=#{users.id}
     </update>
 
 	<insert id="insert" keyProperty="users.id">
-		insert into USERS(
+		insert into users(
 			id
 			<if test="users.username!=null">
 				,username
@@ -585,7 +585,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<delete id="delete">
-		delete from USERS
+		delete from users
 		where id=#{id}
 	</delete>
 

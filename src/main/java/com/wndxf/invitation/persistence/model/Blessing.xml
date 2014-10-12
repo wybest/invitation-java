@@ -5,7 +5,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.wndxf.invitation.persistence.BlessingDAO">
 
-	<resultMap type="com.wndxf.invitation.persistence.model.Blessing" id="BlessingResult">
+	<resultMap type="com.wndxf.invitation.persistence.model.Blessing" id="blessingResult">
 		<id column="id" property="id"/>
 		<result column="name" property="name"/>
 		<result column="pnum" property="pnum"/>
@@ -45,11 +45,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		</where>
 	</sql>
 	
-	<select id="getPageList" resultMap="BlessingResult">
+	<select id="getPageList" resultMap="blessingResult">
 		select * from (select row_.*, rownum rownum_ from (
 			select 
 			<include refid="columnsSql"/>
-			from BLESSING
+			from blessing
 			<include refid="whereSql"/>
 		<![CDATA[
       	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
@@ -57,26 +57,26 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="count" resultType="java.lang.Integer">
-		select count(*) from BLESSING
+		select count(*) from blessing
 		<include refid="whereSql"/>
 	</select>
 	
-	<select id="query" resultMap="BlessingResult">
+	<select id="query" resultMap="blessingResult">
 		select 
 		<include refid="columnsSql"/>
-		from BLESSING
+		from blessing
 		<include refid="whereSql"/>
 	</select>
 
-	<select id="load" resultMap="BlessingResult">
+	<select id="load" resultMap="blessingResult">
 		select 
 		<include refid="columnsSql"/>
-		from BLESSING
+		from blessing
 		where id=#{id}
 	</select>
 
 	<update id="update">
-		update BLESSING
+		update blessing
 		<set>
 			<if test="blessing.name != null">name=#{blessing.name},</if>
 			<if test="blessing.pnum != null">pnum=#{blessing.pnum},</if>
@@ -88,7 +88,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</update>
 
 	<insert id="insert" keyProperty="blessing.id">
-		insert into BLESSING(
+		insert into blessing(
 			id
 			<if test="blessing.name!=null">
 				,name
@@ -122,7 +122,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</insert>
 
 	<delete id="delete">
-		delete from BLESSING
+		delete from blessing
 		where id=#{id}
 	</delete>
 
