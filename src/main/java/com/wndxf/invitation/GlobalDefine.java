@@ -20,6 +20,7 @@ public class GlobalDefine {
     public static String errorMessage="errorMessage";
     public static String message="message";
     public static String user="user";
+    public static String admin="admin";
     public static String ERROR = "error";
     public static String MESSAGE = "message";
     public static String imagePath;

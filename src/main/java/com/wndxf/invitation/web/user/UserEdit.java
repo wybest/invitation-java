@@ -65,7 +65,7 @@ public class UserEdit extends Base{
         return new ModelAndView("user/"+template,modelMap);//edit_slid edit_background edit_background  edit_images
     }
 
-    @RequestMapping(value = "regist", method= RequestMethod.POST)
+    @RequestMapping(value = "/regist", method= RequestMethod.POST)
     public String userRegist(@ModelAttribute("userRegist")Users user,@RequestParam("code") String code,RedirectAttributes redirectAttributes,HttpSession session) {
         String sessionCode = (String)session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
         if(code.trim().equals(sessionCode)){

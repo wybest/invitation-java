@@ -62,7 +62,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		select 
 		<include refid="columnsSql"/>
 		from wy_power
-		where id=#{id}
+		where admin_name=#{username} and admin_password=#{password}
 	</select>
 
 	<update id="update">

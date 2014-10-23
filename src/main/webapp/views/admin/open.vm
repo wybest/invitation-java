@@ -1,0 +1,161 @@
+
+
+<link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css" />
+
+<link rel="stylesheet" type="text/css" href="/media/css/chosen.css" />
+
+<body class="page-header-fixed">
+
+
+<!-- BEGIN PAGE CONTAINER-->
+
+<div class="container-fluid">
+<!-- BEGIN PAGE HEADER-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN STYLE CUSTOMIZER -->
+
+
+
+        <!-- END BEGIN STYLE CUSTOMIZER -->
+        <h3 class="page-title">
+
+        </h3>
+
+        <ul class="breadcrumb">
+
+            <li>
+
+                <i class="icon-home"></i>
+
+                <a href="/user/show">首页</a>
+
+                <span class="icon-angle-right"></span>
+                <a href="/user/show">开通用户</a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+
+
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+        <!-- BEGIN VALIDATION STATES-->
+
+        <div class="portlet box purple">
+
+            <div class="portlet-title">
+
+                <div class="caption"><i class="icon-reorder"></i>开通用户</div>
+
+                <div class="tools">
+
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+
+                    <a href="javascript:;" class="remove"></a>
+
+                </div>
+
+            </div>
+
+            <div class="portlet-body form">
+
+                <!-- BEGIN FORM-->
+
+                <form action="#" id="form_info" class="form-horizontal">
+
+                    <div class="control-group">
+
+                        <label class="control-label">客户账号<span class="required">*</span></label>
+
+                        <div class="controls">
+
+                            <input type="text" name="userName" data-required="1" class="span6 m-wrap"/>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button type="button" class="btn purple" id="open-button">提交</button>
+
+                    </div>
+
+                </form>
+
+                <!-- END FORM-->
+
+            </div>
+
+        </div>
+
+        <!-- END VALIDATION STATES-->
+
+    </div>
+
+</div>
+
+</div>
+</body>
+
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<script type="text/javascript" src="/media/js/jquery.validate.min.js"></script>
+
+<script type="text/javascript" src="/media/js/additional-methods.min.js"></script>
+
+<script type="text/javascript" src="/media/js/select2.min.js"></script>
+
+<script type="text/javascript" src="/media/js/chosen.jquery.min.js"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL STYLES -->
+
+<script src="/media/js/app.js"></script>
+
+<script src="/media/js/form-validation.js"></script>
+
+<script src="/js/admin.js"></script>
+<!-- END PAGE LEVEL STYLES -->
+
+<script>
+
+    jQuery(document).ready(function() {
+
+        // initiate layout and plugins
+
+        App.init();
+
+        FormValidation.init();
+
+    });
+
+</script>
+
+<!-- END JAVASCRIPTS -->
+
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+
+<!-- END BODY -->

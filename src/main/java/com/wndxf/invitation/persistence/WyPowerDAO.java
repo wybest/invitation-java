@@ -11,7 +11,7 @@ public interface WyPowerDAO {
 	
 	public List<WyPower> query(@Param("wyPower") WyPower wyPower);
 
-	public WyPower load(@Param("id") Integer id);
+	public WyPower load(@Param("username") String username,@Param("password") String password);
 
 	public void update(@Param("wyPower") WyPower wyPower);
 

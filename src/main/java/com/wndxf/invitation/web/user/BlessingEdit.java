@@ -26,7 +26,7 @@ public class BlessingEdit extends Base {
     @Autowired
     private BlessingDAO blessingDAO;
 
-    @RequestMapping(value = "blessing/add", method= RequestMethod.POST)
+    @RequestMapping(value = "/blessing/add", method= RequestMethod.POST)
     public @ResponseBody
     Map<String, Object> add(@ModelAttribute Blessing blessing) throws IOException {
         Map<String, Object> returnMap = new HashMap<>();
@@ -64,7 +64,7 @@ public class BlessingEdit extends Base {
         return returnMap;
     }
 
-    @RequestMapping(value = "user/blessing/delete", method= RequestMethod.GET)
+    @RequestMapping(value = "/user/blessing/delete", method= RequestMethod.GET)
     public ModelAndView delete(int blessingId,ModelMap modelMap,HttpSession session) throws IOException {
         blessingDAO.delete(blessingId);
         Blessing bs = new Blessing();
