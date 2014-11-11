@@ -144,7 +144,7 @@
 
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-        <span class="username">$user.username</span>
+        <span class="username">$admin.adminName</span>
 
         <i class="icon-angle-down"></i>
 
@@ -152,7 +152,7 @@
 
     <ul class="dropdown-menu">
 
-        <li><a href="/login"><i class="icon-key"></i> 退出</a></li>
+        <li><a href="/admin_login"><i class="icon-key"></i> 退出</a></li>
 
     </ul>
 
@@ -220,9 +220,9 @@
 
 </li>
 
-<li class="start #if($menu == "home") active #end">
+<li class="start #if($menu == "open") active #end">
 
-    <a href="/user/show?template=home">
+    <a href="/admin/show?template=open">
 
         <i class="icon-home"></i>
 
@@ -232,112 +232,13 @@
 
 </li>
 
-<li #if($menu == "edit_background" or $menu == "edit_images" or $menu == "edit_info")class="active"#end>
+    <li class="start #if($menu == "user_list") active #end">
 
-    <a href="javascript:;">
+        <a href="/admin/show?template=user_list">
 
-        <i class="icon-cogs"></i>
+            <i class="icon-home"></i>
 
-        <span class="title">编辑请柬信息</span>
-
-        <span class="arrow open"></span>
-
-    </a>
-
-    <ul class="sub-menu">
-
-        <li #if($menu == "edit_background")class="active"#end>
-
-            <a href="/user/show?template=edit_background">
-
-                设置背景图片
-
-            </a>
-
-        </li>
-
-        <li #if($menu == "edit_images")class="active"#end>
-
-            <a href="/user/show?template=edit_images">
-
-                设置相册图片
-
-            </a>
-
-        </li>
-
-        <li #if($menu == "edit_info")class="active"#end>
-
-            <a href="/user/show?template=edit_info">
-
-                填写请柬信息
-
-            </a>
-
-        </li>
-
-    </ul>
-
-</li>
-
-<!--
-<li #if($menu == "send" or $menu == "send_normal" or $menu == "send_special")class="active"#end>
-
-        <a href="javascript:;">
-
-            <i class="icon-cogs"></i>
-
-            <span class="title">发送请柬</span>
-
-            <span class="arrow open"></span>
-
-        </a>
-
-        <ul class="sub-menu">
-
-            <li #if($menu == "send_normal")class="active"#end>
-
-                <a href="/user/show?template=send_normal">
-
-                    通用请柬
-
-                </a>
-
-            </li>
-
-            <li #if($menu == "send_special")class="active"#end>
-
-                <a href="/user/show?template=send_special">
-
-                    贵宾请柬
-
-                </a>
-
-            </li>
-
-        </ul>
-
-    </li> -->
-
-<li class=" #if($menu == "send_normal") active #end">
-
-        <a href="/user/show?template=send_normal">
-
-            <i class="icon-bar-chart"></i>
-
-            <span class="title">发送请柬</span>
-
-        </a>
-
-    </li>
-
-<li class="last #if($menu == "blessing") active #end">
-
-        <a href="/user/show?template=blessing">
-
-            <i class="icon-bar-chart"></i>
-
-            <span class="title">回函查看</span>
+            <span class="title">我的会员</span>
 
         </a>
 

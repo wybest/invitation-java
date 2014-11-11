@@ -1,0 +1,179 @@
+#set($layout = "/layout/admin_default.vm")
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+
+    <link rel="stylesheet" type="text/css" href="/media/css/select2_metro.css" />
+
+    <link rel="stylesheet" href="/media/css/DT_bootstrap.css" />
+
+    <!-- END PAGE LEVEL STYLES -->
+
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="page-header-fixed">
+
+
+<!-- BEGIN PAGE CONTAINER-->
+
+<div class="container-fluid">
+
+<!-- BEGIN PAGE HEADER-->
+
+<div class="row-fluid">
+
+    <div class="span12">
+
+
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+
+        </h3>
+
+        <ul class="breadcrumb">
+
+            <li>
+
+                <i class="icon-home"></i>
+
+                <a href="index.html">首页</a>
+
+                <i class="icon-angle-right"></i>
+
+            </li>
+
+            <li>
+
+                <a href="#">我的会员</a>
+
+            </li>
+
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+
+    </div>
+
+</div>
+
+<!-- END PAGE HEADER-->
+
+<!-- BEGIN PAGE CONTENT-->
+
+<div class="row-fluid">
+
+<div class="span12">
+
+<!-- BEGIN EXAMPLE TABLE PORTLET-->
+
+<div class="portlet box light-grey">
+
+<div class="portlet-title">
+
+    <div class="caption"><i class="icon-globe"></i>我的会员列表</div>
+
+    <div class="tools">
+
+        <a href="javascript:;" class="collapse"></a>
+
+        <a href="#portlet-config" data-toggle="modal" class="config"></a>
+
+        <a href="javascript:;" class="reload"></a>
+
+        <a href="javascript:;" class="remove"></a>
+
+    </div>
+
+</div>
+
+<div class="portlet-body">
+
+<table class="table table-striped table-bordered table-hover" id="sample_1">
+
+<thead>
+
+<tr>
+
+    <th>会员</th>
+
+    <th class="hidden-480">开通时间</th>
+
+    <th class="hidden-480">结算状态</th>
+
+    <th class="hidden-480">关闭</th>
+
+    <th ></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+    #foreach($user in $userList)
+<tr class="odd gradeX">
+
+    <td>$user.username</td>
+
+    <td class="hidden-480">$user.createTime</a></td>
+
+    <td class="hidden-480">$user.isConfirm</td>
+
+    <td ><span class="label"><a href="/admin/close?user_id=$user.id" class="btn red icn-only" "><i class="icon-remove icon-white"></i></a></span></td>
+
+</tr>
+    #end
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- END EXAMPLE TABLE PORTLET-->
+
+</div>
+
+</div>
+
+<!-- END PAGE CONTENT-->
+
+</div>
+
+<!-- END PAGE CONTAINER-->
+
+
+
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+
+<script type="text/javascript" src="/media/js/select2.min.js"></script>
+
+<script type="text/javascript" src="/media/js/jquery.dataTables.js"></script>
+
+<script type="text/javascript" src="/media/js/DT_bootstrap.js"></script>
+
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+
+<script src="/media/js/table-managed.js"></script>
+
+<script>
+
+    jQuery(document).ready(function() {
+
+
+        TableManaged.init();
+
+    });
+
+
+</script>
+
+<script type="text/javascript">  var _gaq = _gaq || [];  _gaq.push(['_setAccount', 'UA-37564768-1']);  _gaq.push(['_setDomainName', 'keenthemes.com']);  _gaq.push(['_setAllowLinker', true]);  _gaq.push(['_trackPageview']);  (function() {    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);  })();</script></body>
+
+<!-- END BODY -->

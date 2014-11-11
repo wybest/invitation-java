@@ -69,7 +69,7 @@ public class UserEdit extends Base{
     public String userRegist(@ModelAttribute("userRegist")Users user,@RequestParam("code") String code,RedirectAttributes redirectAttributes,HttpSession session) {
         String sessionCode = (String)session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
         if(code.trim().equals(sessionCode)){
-            Users users = usersDAO.load(user.getUsername(),user.getPassword());
+            Users users = usersDAO.loadByName(user.getUsername());
             if(users==null){
                 int num = usersDAO.insert(user);
                 if(num>0){

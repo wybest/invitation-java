@@ -20,6 +20,11 @@
             <!-- /user/*  -->
             <beans:bean class="com.wndxf.invitation.inteceptor.UserInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/admin/*"/>
+            <!-- /user/*  -->
+            <beans:bean class="com.wndxf.invitation.inteceptor.AdminInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
 

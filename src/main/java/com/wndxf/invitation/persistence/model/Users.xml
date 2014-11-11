@@ -263,6 +263,13 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		where username=#{username} and password=#{password}
 	</select>
 
+    <select id="loadByName" resultMap="usersResult">
+        select
+        <include refid="columnsSql"/>
+        from users
+        where username=#{username}
+    </select>
+
     <select id="loadById" resultMap="usersResult">
         select
         <include refid="columnsSql"/>
@@ -275,7 +282,6 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 		<set>
 			<if test="users.username != null">username=#{users.username},</if>
 			<if test="users.password != null">password=#{users.password},</if>
-			<if test="users.createTime != null">create_time=#{users.createTime},</if>
 			<if test="users.lastTime != null">last_time=#{users.lastTime},</if>
 			<if test="users.vipNum != null">vip_num=#{users.vipNum},</if>
 			<if test="users.isPay != null">is_pay=#{users.isPay},</if>
@@ -314,11 +320,15 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			<if test="users.title != null">title=#{users.title},</if>
 			<if test="users.bigTitle != null">big_title=#{users.bigTitle},</if>
 			<if test="users.weiXin != null">wei_xin=#{users.weiXin},</if>
-			<if test="users.video != null">video=#{users.video}</if>
+			<if test="users.video != null">video=#{users.video},</if>
             <if test="users.background != null">background=#{users.background}</if>
 		</set>
 		where id=#{users.id}
 	</update>
+
+    <update id="open">
+        update users set create_time=now(),is_pay=#{users.isPay},admin_id=#{users.adminId} where id=#{users.id}
+    </update>
 
     <update id="touch">
         update users set last_time=now() where id=#{users.id}
