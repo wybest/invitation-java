@@ -234,14 +234,11 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	</sql>
 	
 	<select id="getPageList" resultMap="usersResult">
-		select * from (select row_.*, rownum rownum_ from (
-			select 
+		select
 			<include refid="columnsSql"/>
 			from users
 			<include refid="whereSql"/>
-		<![CDATA[
-      	)  row_ where rownum <= #{limit} + #{start}) where rownum_ > #{start} 
-		]]>
+		 limit #{start},#{limit}
 	</select>
 	
 	<select id="count" resultType="java.lang.Integer">

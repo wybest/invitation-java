@@ -56,8 +56,9 @@ public class AdminEdit extends Base{
         if(template.equals("user_list")){
             WyPower wyPower = (WyPower) session.getAttribute(GlobalDefine.admin);
             Users users = new Users();
+            users.setAdminId(wyPower.getId());
             List<Users> usersList = usersDAO.getPageList(users, 0, 20);
-            modelMap.put("user_list",usersList);
+            modelMap.put("userList",usersList);
         }
         return new ModelAndView("admin/"+template,modelMap);//edit_slid edit_background edit_background  edit_images
     }

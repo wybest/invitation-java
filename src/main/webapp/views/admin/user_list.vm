@@ -96,6 +96,8 @@
 
 <tr>
 
+    <th style="width:8px;"><input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /></th>
+
     <th>会员</th>
 
     <th class="hidden-480">开通时间</th>
@@ -103,8 +105,7 @@
     <th class="hidden-480">结算状态</th>
 
     <th class="hidden-480">关闭</th>
-
-    <th ></th>
+    <th></th>
 
 </tr>
 
@@ -114,24 +115,26 @@
     #foreach($user in $userList)
 <tr class="odd gradeX">
 
+    <td><input type="checkbox" class="checkboxes" value="1" /></td>
+
     <td>$user.username</td>
 
-    <td class="hidden-480">$user.createTime</a></td>
+    <td class="hidden-480">$user.createTime</td>
 
     <td class="hidden-480">$user.isConfirm</td>
 
-    <td ><span class="label"><a href="/admin/close?user_id=$user.id" class="btn red icn-only" "><i class="icon-remove icon-white"></i></a></span></td>
-
+    <td class="hidden-480"><span class="label"><a href="/admin/close?user_id=$user.id" class="btn red icn-only" "><i class="icon-remove icon-white"></i></a></span></td>
+    <td></td>
 </tr>
     #end
 </tbody>
 
-</table>
+
+    </table>
 
 </div>
 
 </div>
-
 <!-- END EXAMPLE TABLE PORTLET-->
 
 </div>
