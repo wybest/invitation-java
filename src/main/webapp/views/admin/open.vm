@@ -80,7 +80,7 @@
 
                 <!-- BEGIN FORM-->
 
-                <form action="#" id="form_info" class="form-horizontal">
+                <form action="/admin/doOpen" id="form_info" class="form-horizontal">
 
                     <div class="control-group">
 
@@ -97,7 +97,7 @@
 
                     <div class="form-actions">
 
-                        <button type="button" class="btn purple" id="open-button">提交</button>
+                        <button type="submit" class="btn purple" id="open-button">提交</button>
 
                     </div>
 

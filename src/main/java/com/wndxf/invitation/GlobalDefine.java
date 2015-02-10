@@ -16,6 +16,9 @@ import java.util.concurrent.locks.ReentrantLock;
 public class GlobalDefine {
 
     private static AtomicInteger _clientIdSeed = new AtomicInteger(0);
+    public static int unPay = 0;
+    public static int pay = 1;
+    public static int refund = 2;
     public static Lock lock = new ReentrantLock();
     public static String errorMessage="errorMessage";
     public static String message="message";

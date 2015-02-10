@@ -36,18 +36,41 @@ public class AdminEdit extends Base{
     }
 
     @RequestMapping(value = "/admin/doOpen")
-    public ModelAndView doOpen(@RequestParam("username") String name,HttpSession session,ModelMap modelMap) {
+    public ModelAndView doOpen(@RequestParam("userName") String userName,HttpSession session,ModelMap modelMap) {
         WyPower wyPower = (WyPower) session.getAttribute(GlobalDefine.admin);
+        Users user = usersDAO.loadByName(userName);
         Users users = new Users();
-        users.setIsPay(1);
+        users.setIsPay(GlobalDefine.pay);
         users.setAdminId(wyPower.getId());
+        users.setId(user.getId());
         int count = usersDAO.open(users);
         if(count>0){
-            modelMap.put(GlobalDefine.message,"开通成功："+name);
+            modelMap.put(GlobalDefine.message,"开通成功："+userName);
         }else {
-            modelMap.put(GlobalDefine.errorMessage,"开通失败：亲确认用户 "+name+"是否存在");
+            modelMap.put(GlobalDefine.errorMessage,"开通失败：亲确认用户 "+userName+"是否存在");
         }
         return new ModelAndView("admin/open",modelMap);
+    }
+
+    @RequestMapping(value = "/admin/close")
+    public ModelAndView close(@RequestParam("userId") int userId,HttpSession session,ModelMap modelMap) {
+        WyPower wyPower = (WyPower) session.getAttribute(GlobalDefine.admin);
+        Users user = usersDAO.loadById(userId);
+        if(user.getAdminId() != wyPower.getId()){
+            modelMap.put(GlobalDefine.errorMessage,"关闭失败：亲确认用户 "+user.getUsername()+"是否存在");
+        }else {
+            Users users = new Users();
+            users.setId(userId);
+            users.setIsPay(GlobalDefine.refund);
+            int count = usersDAO.update(users);
+            if(count>0){
+                modelMap.put(GlobalDefine.message,"关闭成功："+user.getUsername());
+            }else {
+                modelMap.put(GlobalDefine.errorMessage,"关闭失败：亲确认用户 "+user.getUsername()+"是否存在");
+            }
+        }
+
+        return new ModelAndView("admin/user_list",modelMap);
     }
 
     @RequestMapping(value = "/admin/show", method= RequestMethod.GET)
@@ -57,7 +80,9 @@ public class AdminEdit extends Base{
             WyPower wyPower = (WyPower) session.getAttribute(GlobalDefine.admin);
             Users users = new Users();
             users.setAdminId(wyPower.getId());
-            List<Users> usersList = usersDAO.getPageList(users, 0, 20);
+            users.setIsConfirm(0);
+//            List<Users> usersList = usersDAO.getPageList(users, 0, 20);
+            List<Users> usersList = usersDAO.query(users);
             modelMap.put("userList",usersList);
         }
         return new ModelAndView("admin/"+template,modelMap);//edit_slid edit_background edit_background  edit_images
